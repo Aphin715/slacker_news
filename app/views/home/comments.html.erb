@@ -1,0 +1,131 @@
+<div class="nav-container">
+  <ul class="nav">
+    <li><img class="logo" src="/assets/jets_logo.jpg"></li>
+    <li class ="title"><a href="http://localhost:3000/home/index">Slacker News </a></li>
+    <li> <a href="#">new  | </a></li>
+    <li> <a href="/home/comments">comments  |</a> </li>
+    <li> <a href="#">ask  | </a></li>
+    <li> <a href="#">jobs   |</a></li>
+    <li> <a href="#">submit </a></li>
+    <li class="login"> <a href="#">login </a></li>
+  </ul>
+</div>
+
+<div class="comments-container">
+<ul class="comments">
+  <li>
+    <div class="top">
+      <a class="triangle" href="https://news.ycombinator.com/vote?for=6249452&dir=up&whence=%6e%65%77%73"></a>
+      <a class="link" href="https://www.firebase.com/blog/2013-08-15-firebase-leaves-beta-today.html">Firebase Leaves Beta Today</a>
+      (firebase.com)
+    </div>
+
+    <div class="bottom">
+      <p class = "bottom_comment"> 63 points by lyime 56 minutes ago | 17 comments</p>
+    </div>
+  </li>
+
+
+<form method="post" action="/r">
+  <input type="hidden" name="fnid" value="4TFEp68CVn87QhY1Lukmcx">
+  <textarea name= "text" cols="60" rows="6" > </textarea>
+  <br>
+  <br>
+  <input type="submit" value="add comment">
+</form>
+
+
+  <li>
+      <p><a class="triangle_1" href="https://news.ycombinator.com/vote?for=6249452&dir=up&whence=%6e%65%77%73"></a>
+        <a class="user" href="#"> aphin715 </a> <span>1 hour ago</span> |  <a class="user" href="#">link</a></p>
+            <p class="the_comment"> Now the question is why to bother with multiprocess socket servers at all - aren't threads and events better? There's at least one good niche for them - dynamic languages like Python or Ruby, which need multiple OS processes to achieve real concurrency [my emphasis]
+            That is not true. It is an often repeated misconception. It makes it sound like Python creators were just incompetent and just stuck threads in there even though they are completely useless. In fact Python's threads work well for IO concurrency. I used them and saw great speedup when accepting and handling simultaneous socket connections. Yes you won't get CPU concurrency, but if your server is not CPU bound you might not notice much of a difference.
+            IO concurrency is real concurrency. In 8 years using Python for fun and professionally I probably wrote more IO concurrent code than CPU concurrent code. Even then for CPU concurrent code I would have had to drop into C using an extension (and there you can release the GIL anyway).
+            Now, the obvious follow up is that in case of IO concurrency you are often better of using gevent or eventlet. You get lighter weight threads (memory wise) and less chances of synchronizations bugs (since greenlet based green threads will switch only on IO concurrency points, socket reads, sleep and explicit waits on green semaphores and locks.
+            <br><br>
+            <a href="#"><u>reply</u> </a></p><br>
+  </li>
+
+
+  <li>
+    <div class= "second_comment">
+      <div class="top_1">
+        <p><a class="triangle" href="#"></a>
+          <a class="user" href="#"> slukkonen</a><span> 38 minutes ago</span> | <a class="user" href="#">link</a></p>
+        </div>
+              <p class="the_comment_1" > What he means is true parallelism (although alternate ruby and python implementations have it).
+              <br><br>
+              <a href="#"><u>reply</u> </a></p><br>
+
+    </div>
+  </li>
+
+
+  <li>
+    <div class= "third_comment">
+      <div class="top">
+        <p><a class="triangle" href="#"></a>
+            <a class="user" href="#"> aphin715 </a> <span>26 minutes ago</span> | <a class="user" href="#">link</a></p>
+                <p class="the_comment_2" > Downloading 2 web pages at the same time without one blocking another from completing is true parallelism. The request is sent for one, while it is in progress (maybe server is slow), another one can go out and come back with data. This can happen for hundreds or thousands of them. These are executed in parallel. So we got concurrent units of work executed at the same time, I fail to see how that is not parallel.
+                Now this is IO concurrency but it is real concurrency. Adding CPU concurrency would be very nice. It might speed things up a bit, or it might not. It really depends.
+                As an example consider haproxy. The little proxy that could. It handles large amounts of concurrent connection in parallel and it is single threaded in its default configuration. I've heard of 100k connections. It deals with IO concurrency. Chances are, making it multi-threaded might not dramatically improve its performance (it might even slow it down).
+                <br><br>
+                <a href="#"><u>reply</u> </a></p><br>
+      </div>
+    </div>
+  </li>
+
+
+  <li>
+   <div class= "fourth_comment">
+    <div class="top">
+      <p><a class="triangle" href="https://news.ycombinator.com/vote?for=6249452&dir=up&whence=%6e%65%77%73"></a>
+          <a class="user" href="#"> 2girls1cup </a><span>1 hour ago</span> | <a class="user" href="#">link</a></p>
+              <p class="the_comment_4" >For what it's worth, BSD has had SO_REUSEPORT since BSD 4.4-Lite.
+                <br><br>
+              <a href="#"><u>reply</u></a></p><br>
+      </div>
+    </div>
+  </li>
+
+
+
+  <li>
+   <p><a class="triangle_1" href="https://news.ycombinator.com/vote?for=6249452&dir=up&whence=%6e%65%77%73"></a>
+        <a class="user" href="#"> lemonparty.org </a> <span>1 hour ago</span> |  <a class="user" href="#">link</a></p>
+            <p class="the_comment">More information from 2010 about the way to do that in Linux: http://stackoverflow.com/questions/3261965/so-reuseport-on-l...
+            his is an example of a major downfall with free software: a developer decides he needs a feature so he implements it without taking any effort to see what has been done before – and more importantly, why.
+            It leads to the project sprouting thousands of new features while nothing achieves the polish and completeness of the original idea because the developer moved on to something newer and shinier.
+            I can't find the original blog post where I read the idea, but I did find one on Coding Horror: http://www.codinghorror.com/blog/2008/01/the-magpie-develope...
+            The Linux kernel solves this by having Linus, who has the long term perspective and the commitment to keep the project moving forward. I'm not claiming he's perfect, just that having him is the correct solution to the problem. Obviously here is someone who thinks the 3.9 kernel has a new feature he needs all the while ignoring past socket work.
+            <br><br>
+            <a href="#"><u>reply</u></a></p><br>
+      </div>
+    </div>
+  </li>
+
+
+
+<div class="footer-container">
+
+  <ul class="footer" style="margin-top :0px;">
+    <li><a href="#">Lists |</li>
+    <li><a href="#">RSS |</li>
+    <li><a href="#">Bookmarks |</li>
+    <li><a href="#">Guidelines |</li>
+    <li><a href="#">FAQ |</li>
+    <li><a href="#">DMCA |</li>
+    <li><a href="#">News News |</li>
+    <li><a href="#">Feature Requests |</li>
+    <li><a href="#">Bugs |</li>
+    <li><a href="#">Y Combinator |</li>
+    <li><a href="#">Apply |</li>
+    <li><a href="#">Library |</li>
+  </ul>
+<div class="search_bar"
+  <form>
+    <label>Search:</label>
+    <input type="search" name="search">
+  </form>
+</div>
+</div>
